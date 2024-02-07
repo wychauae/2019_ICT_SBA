@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<title>STEM__VOTE!</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+<style>
+/* 定義風格 */
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+  height: 100%;
+  color: #777;
+  line-height: 1.8;
+}
+
+/* 為動畫不與Display衝突而定義文字顯示中間 */
+.center {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+}
+	
+/* 右邊的音樂TAG */
+#Music_Tag a {
+ position: fixed;
+ right: -375px;
+ top:40%;
+ transition: 0.3s;
+ padding: 5px;
+ width: 400px;
+ background-color: #f44336;
+ z-index:3;
+}
+
+#Music_Tag a:hover {
+  right: 0;
+}
+
+/* 頂部設置 */
+* {box-sizing: border-box;}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* 自動幻燈片的container */
+.slideshow-container {
+  max-width: 2000px;
+  max-height:1500px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+/* 小標題 */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* 圖片序號 */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* 幻燈片下面的小點點 */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* 淡出淡入動畫效果 */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/*在較小的屏幕上縮小字體大小 */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+</style>
+
+<body>
+
+<!-- 右邊的音樂TAG  -->
+<div id="Music_Tag" class="Music">
+  <a > <iframe width="100%" height="128" scrolling="no" frameborder="no" allow="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/195970066&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe> </a><!-- Chrome在2018更新布，若非用戶主動進行交互動作例如點擊，音頻是不會自動播放的。 -->
+
+</div>
+
+<!-- indx主選單 -->
+<!-- toggle代表搜索功能 -->
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onClick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="index.html" class="w3-bar-item w3-button"><i class="fa fa-home"></i>主頁</a>
+    <a href="#投票簡介" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i>投票簡介</a>
+    <a href="#投票項目" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> 投票項目</a>
+    <a href="#投票結果" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> 投票結果</a>
+    <a href="Login.html" target="_blank" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
+      <i class="fa fa-address-book"></i> 登入</a>
+  </div>
+  
+  <!-- 在較小的屏幕上也可使用菜單功能 -->
+  <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium">
+    <a href="#主頁" class="w3-bar-item w3-button" onClick="toggleFunction()">主頁</a>
+    <a href="#投票簡介" class="w3-bar-item w3-button" onClick="toggleFunction()">投票簡介</a>
+    <a href="#投票項目" class="w3-bar-item w3-button" onClick="toggleFunction()">投票項目</a>
+    <a href="#投票結果" class="w3-bar-item w3-button" onClick="toggleFunction()">投票結果</a>
+    <a href="Login.html" target="_blank" class="w3-bar-item w3-button" onClick="toggleFunction()">登入</a>
+  </div>
+</div>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade" id="slides">
+  <div class="numbertext">1 / 4</div>
+  <img src="ictsba/Nerdy Derby/Nerdy Derby 00.jpg" alt="Nerdy Derby" width="1500" height="1000" style="width:100%">
+  <div class="text"><h3>Nerdy Derby</h3>
+      <p><b>參加者可以發揮自己無限的創造力，去制造屬於自己獨一無二的小車。並從克服不同的困難和挑戰，最後取得成功的過程中獲得喜悅!</b></p>   </div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 4</div>
+  <img src="ictsba/mbot/mBot 機械人00.jpg" alt="MBOT" width="1500" height="1000" style="width:100%">
+  <div class="text"><h3><h3>Mbot 機械人</h3>
+      <p><b>mBot讓參加者體驗動手創造的樂趣，認識各種機器人機械和電子零件，入門學習積木式編程，並鍛煉邏輯和設計思維。</b></p>    </div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 4</div>
+  <img src="ictsba/LEGO/LEGO 機械人08.jpg" alt="LEGO 机械人" width="1498" height="1000"  style="width:100%">
+  <div class="text"><h3>LEGO  機械人</h3>
+      <p><b>參加者從機械人組裝、設計及編寫程式的過程中學習建構性思維，同時提昇他們對科技方面的興趣。在課堂上學生更能掌握高階機械人的製作，同時在Arduino的基礎上，開發及設計多元化的智能裝置。</b></p> </div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">4 / 4</div>
+  <img src="ictsba/Boxbot/擂台機械人00.jpg" alt="擂台機械人" width="1500" height="1000" style="width:100%">
+  <div class="text"><h3> <h3>擂台機械人</h3>
+      <p><b>該活動也豐富了參加者們的相關科技知識，加深了他們對機器人技術的興趣，極大地增強了他們的動手能力。參加者們依賴於他們閃電般快速的反應和驅動能力，以及他們對於機器人充滿想象力和有效性的設計來擊敗對手。</b></p>   </div>
+</div>
+
+<a class="prev" onClick="plusSlides(-1)">&#10094;</a>
+<a class="next" onClick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onClick="currentSlide(1)"></span> 
+  <span class="dot" onClick="currentSlide(2)"></span> 
+  <span class="dot" onClick="currentSlide(3)"></span> 
+  <span class="dot" onClick="currentSlide(4)"></span>
+</div>
+    
+    <!-- The Band Section -->
+<div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="投票簡介">
+    <h2 class="w3-wide wow bounceInRight data-wow-duration="2s" data-wow-delay="0.2s"">投票簡介</h2>
+    <p class="w3-opacity wow bounceInLeft data-wow-duration="2s" data-wow-delay="0.5s""><i>這個世界充滿著未知變幻的旅程</i></p>
+    <p class="w3-justify wow fadeInRight data-wow-duration="4s" data-wow-delay="0.8s"">本次投票旨在讓本校學生以及公眾選出自己認為最喜歡的STEM項目，一方面以這種方式可以讓學校學生以及公眾對本校的STEM項目有一個更深入的了解，在另一方面學校將會透過投票結果了解到人們對於STEM項目的反應，獎勵對最受歡迎STEM項目有貢獻的同學，希望他們繼續加油努力。與此同時亦會分析投票結果，幫助其他STEM項目在往後的日子裡面做出改善，變得更受人歡迎。經過學校機器人學會的篩選，現在有四個STEM項目被挑選出作為投票選項，其分別是：Nerdy Derby、Mbot、LEGO 機械人以及擂台機械人。希望大家踴躍參與，投出手上神聖寶貴的一票！</p>
+     <p class="w3-justify wow fadeInLeft data-wow-duration="4s" data-wow-delay="1s"">請根據項目的趣味性和教育性來進行投票，過程務必保證公平公正，惡意投票，刷票的行為是不被允許的。在投票活動結束後，將會根據投票的結果頒發獎項，更多資料或者查詢請留意網站的最新消息。</p>
+</div>
+
+<div class="w3-container w3-light-grey  w3-center" style="padding:128px 16px" id="投票項目">
+    <h2 class="w3-wide wow bounceInRight data-wow-duration="2s" data-wow-delay="0.2s"">投票項目</h2>
+    <div class="w3-row w3-padding-32">
+    <div class="w3-quarter wow fadeInUp data-wow-duration="4s" data-wow-delay="1.1s"">
+        <p><a href="Nerdy_Derby.html">Nerdy Derby</a></p>
+        <a href="Nerdy_Derby.html"><img src="ictsba/Nerdy Derby/Nerdy Derby 09.jpg" class="w3-round w3-margin-bottom" alt="Nerdy Derby" style="width:450px"></a>
+      </div>
+      <div class="w3-quarter wow fadeInUp data-wow-duration="4s" data-wow-delay="1.4s"">
+        <p><a href="Mbot.html">Mbot 機械</a>人</p>
+        <a href="Mbot.html"><img src="ictsba/mbot/mBot 機械人03.jpg" class="w3-round w3-margin-bottom " alt="Mbot" style="width:400px"></a>
+      </div>
+      <div class="w3-quarter wow fadeInUp data-wow-duration="4s" data-wow-delay="1.7s"">
+        <p><a href="LEGO.html">LEGO 機械</a>人</p>
+        <a href="LEGO.html"><img src="ictsba/LEGO/LEGO 機械人00.jpg" class="w3-round w3-margin-bottom " alt="LEGO 機械人" style="width:450px"></a>
+      </div>
+      <div class="w3-quarter wow fadeInUp data-wow-duration="4s" data-wow-delay="2.1s"">
+        <p><a href="BOX.html">擂台機械人</a></p>
+        <a href="BOX.html"><img src="ictsba/Boxbot/擂台機械人03.jpg" class="w3-round w3-margin-bottom " alt="擂台機械人" style="width:400px"></a>
+      </div>
+    </div>
+</div>
+
+
+<div  align="center" id="投票結果">
+	<h4>最受歡迎STEM項目投票</h4>
+		<table id="main" >
+			<tr >
+				<td>
+					<input type="radio" name="option" checked="checked"/>Nerby Derby
+				</td>
+			</tr>
+			<tr>
+				<td style="width:1200px">
+					<div id=0 style="background-color:#acd6ff; width:450px; height:20px; border-width:0px;">
+					</div>
+				</td>
+				<td>
+					<label id="label0">45</label>票
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="radio" name="option"  />Mbot 機械人
+				</td>
+			</tr>
+			<tr >
+				<td>
+					<div id=1 style="background-color:#0066cc; height:20px; width:200px; border-width:0px; border-color:blue; border-style:solid ; text-align:right;" ></div>
+					
+				</td>
+				<td>
+				<label id="label1">20</label>票
+				</td>
+			</tr>	
+			<tr >
+				<td>
+					<input type="radio" name="option"  />LEGO 機械人
+				</td>
+			</tr>
+			<tr >
+				<td>
+					<div id=2 style="background-color:#ff7575; height:20px;width:350px;  border-width:0px; border-color:blue; border-style:solid ; text-align:right;" ></div>
+					
+				</td>
+				<td>
+				<label id="label2">35</label>票
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					<input type="radio" name="option" />擂台機械人
+				</td>
+			</tr>
+			<tr >
+				<td>
+					<div id=3 style="background-color:#5cadad;height:20px;width:190px; border-width:0px; border-color:blue; border-style:solid ; text-align:right;" ></div>
+					
+				</td>
+				<td>
+				<label id="label3">19</label>票
+				</td>
+			</tr>
+		
+			<tr>
+				<td><p>
+					<input type="submit" value="确认投票" onClick="vote()"/>		
+				</td>
+			</tr>
+		</table>
+</div>
+
+<h2>留下評論！</h2>
+<p>只能以文字形式留言，且字數不能超過一百字，內容不應包含不雅言語，侮辱仇恨性言論。</p>
+
+<div class="container">
+  <form action="/action_page.php">
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">項目名稱</label>
+      </div>
+      <div class="col-75">
+        <select id="country" name="country">
+          <option value="Nerby Derby">Nerdy Derby</option>
+          <option value="Mbot">Mbot機械人</option>
+          <option value="LEGO">LEGO機械人</option>
+          <option value="Box">擂台機器人</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="country">好評/壞評</label>
+      </div>
+      <div class="col-75">
+        <select id="country" name="country">
+          <option value="australia">好評</option>
+          <option value="canada">壞評</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="subject">留言評論</label>
+      </div>
+      <div class="col-75">
+        <textarea id="subject" name="subject" placeholder="寫下你的評論.." style="height:200px"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <input type="submit" value="提交" >
+    </div>
+  </form>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+  <a href="#slides" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>回到頂部</a>
+  <div class="w3-xlarge w3-section">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+  <p>© 版權屬 <a href="http://www.lcp.edu.hk/" title="Yan Chai Hospital Lan Chi Pat Memorial Secondary School仁濟醫院靚次伯紀念中學所有" target="http://www.lcp.edu.hk/" class="w3-hover-text-green">Yan Chai Hospital Lan Chi Pat Memorial Secondary School仁濟醫院靚次伯紀念中學所有</a></p>
+</footer>
+</body>
+
+<script>
+// 當下滑時頂部選單會改變風格
+window.onscroll = function() {myFunction()};
+function myFunction() {
+    var navbar = document.getElementById("myNavbar");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+    } else {
+        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+    }
+}
+
+//幻燈片切換效果
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<script type="text/javascript">
+ 
+	//在每个投票选项后面写了个div，用div的宽度来代表当前该选项的投票数。
+	function vote(){	//函数vote，当点击确认投票的时候，调用vote方法
+		
+		//for循环的条件是，所有投票选项的个数。
+		for(var i = 0; i < document.getElementsByName("option").length; i++){
+			
+			//查找到是哪个投票选项被选中
+			if(document.getElementsByName("option")[i].checked == true){
+				var width = document.getElementById(i).style.width;	//获取到当前选项的宽度。
+				width = parseInt(width);//将宽度转化为int型，因为获取到的width的单位是px
+				width += 10;//改变width的值，这里就是定义每次投票的进度条的增速
+				document.getElementById(i).style.width = width+"px";//修改原div的宽度
+				
+				var label = "label"+i;//lable标签里面写的是当前的投票数目。
+				var num = document.getElementById(label).innerText;//获取到当前的票数
+				document.getElementById(label).innerText = ++num;//票数加1，并修改原值
+			}
+		}
+ 
+		//alert("投票成功");
+		
+	}
+ 
+</script>
+
+<script src="wow.min.js"></script>  
+<script type="text/javascript">  
+    new WOW().init();  
+</script>
+<script>
+// 在較小的屏幕上也可使用菜單功能
+function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+</html>

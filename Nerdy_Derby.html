@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<title>Nerby Derby</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+
+<style>
+/* 定義風格 */
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+  height: 100%;
+  color: #777;
+  line-height: 1.8;
+}
+
+#Video_frame a {
+ position: relative;
+ padding: 5px;
+ Left:50px;
+}
+
+</style>
+
+<body>
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onClick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="vote.html" class="w3-bar-item w3-button"><i class="fa fa-arrow-left"></i>返回</a>
+  </div>
+  
+  <!-- 在較小的屏幕上也可使用菜單功能 -->
+  <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium">
+    <a href="vote.html" class="w3-bar-item w3-button" onClick="toggleFunction()">返回</a>
+  </div>
+</div>
+
+
+<div class="w3-container w3-content w3-center w3-padding-64 " style="max-width:800px" >
+    <h2 class="w3-wide wow bounceInRight data-wow-duration="2s" data-wow-delay="0.2s"">Nerby Derby</h2>
+    <p class="w3-opacity wow bounceInLeft data-wow-duration="2s" data-wow-delay="0.5s""><i>理性去引導，感性去面對，知性去提煉。</i></p>
+    <p class="w3-justify wow fadeInRight data-wow-duration="4s" data-wow-delay="0.8s"">參加者可以發揮自己無限的創造力，去制造屬於自己獨一無二的小車。並從克服不同的困難和挑戰，最後取得成功的過程中獲得喜悅!</p>
+</div>
+
+<!-- Work Section -->
+<div class="w3-container w3-light-grey" style="padding:128px 16px" id="work">
+  <div id="Video_frame" class="Video">
+   <a ><iframe width="720" height="405" src="https://www.youtube-nocookie.com/embed/hUUWhR3217Q" frameborder="50" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></a>
+  </div>
+
+  <div class="w3-row-padding" style="margin-top:64px">
+    <div class="w3-col l3 m6">
+      <img src="ictsba/Nerdy Derby/Nerdy Derby 00.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Nerby Derby">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="ictsba/Nerdy Derby/Nerdy Derby 01.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Nerby Derby">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="ictsba/Nerdy Derby/Nerdy Derby 02.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Nerby Derby">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="ictsba/Nerdy Derby/Nerdy Derby 03.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Nerby Derby">
+    </div>
+  </div>
+
+  <div class="w3-row-padding w3-section">
+    <div class="w3-col l3 m6">
+      <img src="ictsba/Nerdy Derby/Nerdy Derby 04.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Nerby Derby">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="ictsba/Nerdy Derby/Nerdy Derby 05.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Nerby Derby">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="ictsba/Nerdy Derby/Nerdy Derby 06.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Nerby Derby">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="ictsba/Nerdy Derby/Nerdy Derby 07.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Nerby Derby">
+    </div>
+  </div>
+</div>
+
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="img01" class="w3-image">
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+</body>
+
+<script>
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+// 當下滑時頂部選單會改變風格
+window.onscroll = function() {myFunction()};
+function myFunction() {
+    var navbar = document.getElementById("myNavbar");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+    } else {
+        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+    }
+}
+</script>
+</html>
